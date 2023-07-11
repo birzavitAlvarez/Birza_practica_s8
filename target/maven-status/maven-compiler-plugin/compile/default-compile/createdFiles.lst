@@ -1,0 +1,5 @@
+com\example\demo\DemoApplication.class
+com\example\demo\repository\SteamRepository.class
+com\example\demo\entity\Directorio.class
+com\example\demo\entity\Steam.class
+com\example\demo\repository\DirectorioRepository.class
