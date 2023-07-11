@@ -1,51 +1,54 @@
-@server = https://ec-2-serviciosweb.onrender.com
+@server = http://localhost:8090
 ###
 GET {{server}}
 ###
-GET {{server}}/cursos
+GET {{server}}/steams
 ###
-GET {{server}}/cursos/2
+GET {{server}}/steams/2
 ###
-GET {{server}}/cursos?size=2
+GET {{server}}/steams?size=2
 ###
-GET {{server}}/cursos?size=2&page=1
+GET {{server}}/steams?size=2&page=1
 ###
-GET {{server}}/cursos?sort=nombre,desc
+GET {{server}}/steams?sort=nombre,desc
 ###
-GET {{server}}/cursos?sort=nombre,asc
+GET {{server}}/steams?sort=nombre,asc
 ###
-GET {{server}}/cursos?sort=creditos,desc
+GET {{server}}/steams?sort=usuario,desc
 ###
-POST {{server}}/cursos
+GET {{server}}/steams?sort=usuario,asc
+###
+POST {{server}}/steams
 Content-Type: application/json
 
-{"nombre": "Compiladores", "creditos": 5}
+{"nombre": "Yu Gi Oh", "usuario": "Jacob", "identificador": 2323}
+
 ###
-DELETE {{server}}/cursos/252
+DELETE {{server}}/steams/5
 ### PATCH es Actualizar y el campo que deseas modificar
-PATCH {{server}}/cursos/213
+PATCH {{server}}/steams/6
 Content-Type: application/json
 
-{"creditos": 1}
+{"nombre": "Yu Gi Oh update"}
 
 ###
-GET {{server}}/profile/cursos
+GET {{server}}/profile/steams
 
 ### buscar por nombre si están separados por espacio en blanco usar el +
-GET {{server}}/cursos/search/findByNombre?nombre=Desarrollo+BackEnd
+GET {{server}}/steams/search/findByNombre?nombre=Yu+Gi+Oh+update
 
-######################## CARRERA #################
-GET {{server}}/carreras
+######################## directorios #################
+GET {{server}}/directorios
 ###
-POST {{server}}/carreras
+POST {{server}}/directorios
 Content-Type: application/json
 
 {"nombre": "Web"}
 
-### entro cursos codigo 2 y me trae la carrera que coincida
-GET {{server}}/cursos/2/carrera
+### entro steams codigo 2 y me trae la carrera que coincida
+GET {{server}}/steams/2/directorio
 ###
-GET {{server}}/carreras/2
-### entro a carreras con codigo 1 y me trae todos los cursos que coincidan
-GET {{server}}/carreras/2/cursos
+GET {{server}}/directorios/2
+### entro a carreras con codigo 1 y me trae todos los steams que coincidan
+GET {{server}}/directorios/2/steams
 ###

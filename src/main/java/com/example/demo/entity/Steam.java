@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Steam {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)//SEQUENCE
     @Column(name = "id_steam",nullable = false)
     private Integer id;
 
@@ -17,7 +17,7 @@ public class Steam {
     @Column(name = "usuario_steam", nullable=false,length=40)
     private String usuario;
 
-    @Column(name = "identificador_steam")
+    @Column(name = "identificador_steam", nullable=false)
     private Integer identificador;
 
     @ManyToOne(cascade = CascadeType.ALL)

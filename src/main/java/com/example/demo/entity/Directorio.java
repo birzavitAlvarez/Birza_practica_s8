@@ -7,14 +7,14 @@ import jakarta.persistence.*;
 @Table(name="directorio")
 public class Directorio {
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)//SEQUENCE
     @Column(name = "id_directorio",nullable = false)
     private Integer id;
 
     @Column(name = "nombre_directorio",nullable=false,length=40)
     private String nombre;
 
-    @OneToMany(targetEntity = Steam.class, mappedBy = "steam")
+    @OneToMany(targetEntity = Steam.class, mappedBy = "directorio")// aquí entra la entidad de esta clase
     @OrderBy("nombre ASC")
     private Set<Steam> steams = new HashSet<Steam>();
 
